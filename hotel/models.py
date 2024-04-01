@@ -1,5 +1,5 @@
 from django.db import models
-
+'''
 from account.models import CustomUser
 
 # Create your models here.
@@ -46,4 +46,4 @@ class OrderUpdate(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     staff = models.ForeignKey(Staff, on_delete=models.CASCADE)
     status = models.CharField(max_length=20, choices=Order.STATUS_CHOICES)
-    timestamp = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now_add=True)'''

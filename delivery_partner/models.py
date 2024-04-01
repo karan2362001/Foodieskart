@@ -1,6 +1,6 @@
 from django.db import models
 
-from account.models import CustomUser
+'''from account.models import CustomUser'''
 
 # Create your models here.
 '''class DeliveryPartner(models.Model):
