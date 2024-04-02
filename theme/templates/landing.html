@@ -1,591 +1,1180 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-	<link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
-    rel="stylesheet"
-/>
-    <title>Document</title>
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <title>Foodieskart</title>
+  </head>
+  <body>
     <!-- component -->
-<header class="fixed w-full">
-	<nav class="bg-white border-gray-200 py-2.5 dark:bg-white">
-		<div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
-			<a href="#" class="flex items-center">
-				<img src="https://static.vecteezy.com/system/resources/previews/000/617/374/original/f-logo-and-symbols-template-vector.jpg" class="h-6 mr-3 sm:h-9" alt="Landwind Logo" />
-				<span class="self-center text-xl font-semibold whitespace-nowrap dark:text-[#FFB000]">FoodiesKart</span>
-			</a>
-			<div class="flex items-center lg:order-2">
-				
+    <header class="fixed w-full">
+      <nav
+        class="bg-white border-gray-200 py-2.5 dark:bg-white shadow-gray-200 shadow-md"
+      >
+        <div
+          class="flex flex-wrap items-center justify-between max-w-screen-xl px-20 mx-auto"
+        >
+          <a href="/" class="flex items-center">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/000/617/374/original/f-logo-and-symbols-template-vector.jpg"
+              class="h-6 mr-3 sm:h-9"
+              alt="Landwind Logo"
+            />
+            <span
+              class="self-center text-3xl font-semibold whitespace-nowrap dark:text-[#FFB000]"
+              >FoodiesKart</span
+            >
+          </a>
+          <div class="flex items-center lg:order-2">
+            <a
+              href="{% url 'login' %}"
+              class="text-white bg-[#FFB000] hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-[#FFB000] dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
+              >login
+              <button
+                data-collapse-toggle="mobile-menu-2"
+                type="button"
+                class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="mobile-menu-2"
+                aria-expanded="false"
+              >
+                <span class="sr-only">Open main menu</span>
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <svg
+                  class="hidden w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg></button
+            ></a>
+          </div>
+          <div
+            class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1"
+            id="mobile-menu-2"
+          >
+            <ul
+              class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"
+            >
+              <li>
+                <a
+                  href="#"
+                  class="block p-2 rounded-md text-[#FFB000] border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 dark:text-[#FFB000] lg:dark:hover:text-red-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-yellow-100 dark:border-gray-700"
+                  aria-current="page"
+                  >POS <i class="ri-arrow-down-s-fill"></i
+                ></a>
+                <div
+                  class="dropdown-menu hidden absolute z-50 bg-gray-100 text-black rounded-md"
+                >
+                  <a
+                    href="#supplychain"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-truck mr-2 m-2"></i>Supply Chain
+                    <i class="ri-arrow-right-line"></i
+                  ></a>
+                  <a
+                    href="#tableordering"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-utensils mr-2 m-2"></i>Table Ordering
+                    solution <i class="ri-arrow-right-line"></i
+                  ></a>
+                  <a
+                    href="#onlineintegration"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-sync-alt mr-2 m-2"></i>Online Integration
+                    <i class="ri-arrow-right-line"></i
+                  ></a>
+                  <a
+                    href="#paymentdashboard"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-money-bill-wave mr-2 m-2"></i>Payment
+                    Dashboard <i class="ri-arrow-right-line"></i
+                  ></a>
+                  <a
+                    href="#billingsolutions"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-file-invoice-dollar mr-2 m-2"></i>Billing
+                    Solutions <i class="ri-arrow-right-line"></i
+                  ></a>
+                  <a
+                    href="#receptionistdashboard"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-users mr-2 m-2"></i>Receptionist Dashboard
+                    <i class="ri-arrow-right-line"></i
+                  ></a>
+                  <a
+                    href="#staffmanagement"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-user-tie mr-2 m-2"></i>Staff Management
+                    <i class="ri-arrow-right-line"></i
+                  ></a>
+                  <a
+                    href="#inventorymanagement"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-boxes mr-2 m-2"></i>Inventory Management
+                    <i class="ri-arrow-right-line"></i
+                  ></a>
+                </div>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block p-2 rounded-md text-[#FFB000] border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 dark:text-[#FFB000] lg:dark:hover:text-red-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-yellow-100 dark:border-gray-700"
+                  >Outlet types <i class="ri-arrow-down-s-fill"></i
+                ></a>
+                <div
+                  class="dropdown-menu hidden absolute z-50 bg-gray-100 text-black rounded-md"
+                >
+                  <a
+                    href="#supplychain"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-truck mr-2 m-2"></i>Fine dine
+                    <i class="ri-arrow-right-line"></i
+                  ></a>
+                  <a
+                    href="#tableordering"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-utensils mr-2 m-2"></i>QSR solution
+                    <i class="ri-arrow-right-line"></i
+                  ></a>
+                  <a
+                    href="#onlineintegration"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-sync-alt mr-2 m-2"></i>Cafe
+                    <i class="ri-arrow-right-line"></i
+                  ></a>
+                  <a
+                    href="#paymentdashboard"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-money-bill-wave mr-2 m-2"></i>Food court
+                    <i class="ri-arrow-right-line"></i
+                  ></a>
+                  <a
+                    href="#billingsolutions"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-file-invoice-dollar mr-2 m-2"></i>Cloud
+                    kitchen <i class="ri-arrow-right-line"></i
+                  ></a>
+                  <a
+                    href="#receptionistdashboard"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-users mr-2 m-2"></i>Ice cream & desserts
+                    <i class="ri-arrow-right-line"></i
+                  ></a>
+                  <a
+                    href="#staffmanagement"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-user-tie mr-2 m-2"></i>Bakery
+                    <i class="ri-arrow-right-line"></i
+                  ></a>
+                  <a
+                    href="#inventorymanagement"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-boxes mr-2 m-2"></i>Bar & brewery
+                    <i class="ri-arrow-right-line"></i
+                  ></a>
+                  <a
+                    href="#inventorymanagement"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-boxes mr-2 m-2"></i>Pizzeria
+                    <i class="ri-arrow-right-line"></i
+                  ></a>
+                  <a
+                    href="#inventorymanagement"
+                    class="block px-4 py-2 hover:bg-yellow-100 hover:text-red-500 rounded-md"
+                    ><i class="fas fa-boxes mr-2 m-2"></i>Large chain
+                    <i class="ri-arrow-right-line"></i
+                  ></a>
+                </div>
+              </li>
+              <li>
+                <a
+                  href="{% url 'pricing' %}"
+                  class="block p-2 rounded-md text-[#FFB000] border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 dark:text-[#FFB000] lg:dark:hover:text-red-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-yellow-100 dark:border-gray-700"
+                  >Pricing</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
 
-				<a href="base.html" target="_blank"
-					class="text-white bg-[#FFB000] hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-[#FFB000] dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">login
-				<button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
-<span class="sr-only">Open main menu</span>
- <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-<svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-</a></button>
-			</div>
-			<div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-				<ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-					<li>
-						<a href="#"
-							class="block py-2 pl-3 pr-4 text-[#FFB000] bg-purple-700 rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white"
-							aria-current="page">Home</a>
-					</li>
-					<li>
-						<a href="#"
-							class="block py-2 pl-3 pr-4 text-[#FFB000] border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-[#FFB000] lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Company</a>
-					</li>
-					<li>
-						<a href="#"
-							class="block py-2 pl-3 pr-4 text-[#FFB000] border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-[#FFB000] lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Marketplace</a>
-					</li>
-					<li>
-						<a href="#"
-							class="block py-2 pl-3 pr-4 text-[#FFB000] border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-[#FFB000] lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Features</a>
-					</li>
-					<li>
-						<a href="#"
-							class="block py-2 pl-3 pr-4 text-[#FFB000] border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-[#FFB000] lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Team</a>
-					</li>
-					<li>
-						<a href="#"
-							class="block py-2 pl-3 pr-4 text-[#FFB000] border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-[#FFB000] lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-</header>
+    <section class="bg-white dark:bg-white">
+      <div
+        class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28"
+      >
+        <div class="mr-auto place-self-center lg:col-span-7">
+          <h1
+            class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-[#FFB000]"
+          >
+            Hotel Management <br />
+            Software.
+          </h1>
+          <p
+            class="max-w-2xl mb-6 font-serif text-[#FFB000] lg:mb-8 md:text-lg lg:text-xl dark:text-black"
+          >
+            Our hotel management software offers a comprehensive solution to
+            streamline various aspects of hotel operations, ensuring efficiency,
+            convenience, and exceptional guest experiences. Let's delve into the
+            details of each module:
+            <a href="#" target="_blank" class="hover:underline">Tailwind CSS</a>
+            and based on the components from the
+            <a href="#/" class="hover:underline" target="_blank"
+              >Flowbite Library</a
+            >
+            and the
+            <a
+              href="https://flowbite.com/blocks/"
+              target="_blank"
+              class="hover:underline"
+              target="_blank"
+              >Blocks System</a
+            >.
+          </p>
+        </div>
+        <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+          <img
+            src="https://img.freepik.com/free-vector/hotel-composition-collection-with-staff_1284-32468.jpg?w=996&t=st=1711821129~exp=1711821729~hmac=ff25f4f8313863305e1121fff5cc71df012ea725d2094635f9b0380a4724a9ff"
+            alt="hero image"
+          />
+        </div>
+      </div>
+    </section>
 
-<section class="bg-white dark:bg-white">
-	<div class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
-		<div class="mr-auto place-self-center lg:col-span-7">
-			<h1
-				class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-[#FFB000]">
-			 Hotel Management <br> Software.</h1>
-				<p class="max-w-2xl mb-6 font-serif text-[#FFB000] lg:mb-8 md:text-lg lg:text-xl dark:text-black">Our hotel management software offers a comprehensive solution to streamline various aspects of hotel 
-					operations, ensuring efficiency, convenience, and exceptional guest experiences. Let's delve into the details of 
-					each module: <a
-						href="#" target="_blank" class="hover:underline">Tailwind CSS</a> and based on the
-					components from the <a href="#/"
-						class="hover:underline" target="_blank">Flowbite Library</a> and the <a href="https://flowbite.com/blocks/" target="_blank"
-						class="hover:underline" target="_blank">Blocks System</a>.</p>
-				
-		</div>
-		<div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-			<img src="https://img.freepik.com/free-vector/hotel-composition-collection-with-staff_1284-32468.jpg?w=996&t=st=1711821129~exp=1711821729~hmac=ff25f4f8313863305e1121fff5cc71df012ea725d2094635f9b0380a4724a9ff" alt="hero image">
-</div>
-		</div>
-</section>
+    <ul
+      role="list"
+      class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"
+    ></ul>
 
+    <section class="bg-gray-50 dark:bg-white">
+      <div
+        class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6"
+      >
+        <div
+          class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16"
+          id="supplychain"
+        >
+          <div class="text-white sm:text-lg dark:text-white">
+            <h2
+              class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-[#FFB000]"
+            >
+              <i class="ri-verified-badge-fill text-black m-2"></i> 1: Supply
+              Chain of Food
+            </h2>
+            <p class="mb-8 font-serif text-black lg:text-xl">
+              Efficiently manage the supply chain of food items, from
+              procurement to storage, ensuring freshness and quality. Track
+              inventory levels, monitor supplier relationships, and optimize
+              procurement processes to minimize costs while maximizing quality.
+            </p>
 
-<ul role="list" class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"></ul>
+            <ul
+              role="list"
+              class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"
+            >
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-black dark:text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                  >Categorization of food items (vegetables, fruits, spices,
+                  dairy products, etc.).</span
+                >
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-black dark:text-bl"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                >
+                  Optimize food procurement and inventory management
+                  processes.</span
+                >
+              </li>
+            </ul>
+          </div>
+          <img
+            class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
+            src="https://img.freepik.com/premium-vector/online-3d-printing-process-vector-isometric-illustration_103044-4315.jpg?w=1060"
+            alt="dashboard feature image"
+          />
+        </div>
 
+        <div
+          class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16"
+          id="tableordering"
+        >
+          <img
+            class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
+            src="https://img.freepik.com/free-vector/characters-using-mobile-payment-system-with-scan-qr-code-online-shopping-concept_90220-479.jpg?w=1060&t=st=1711824566~exp=1711825166~hmac=4829c3f28ebf991a604c647410aa391ea46866ff22f3829a3e0c41a7425aef85"
+            alt="feature image 2"
+          />
+          <div class="text-gray-500 sm:text-lg dark:text-gray-400">
+            <h2
+              class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-[#FFB000]"
+            >
+              <i class="ri-verified-badge-fill text-black m-2"></i> 2: Table
+              Ordering using QR Code
+            </h2>
+            <p class="mb-8 font-serif text-black lg:text-xl">
+              Revolutionize the dining experience with our QR code-based table
+              ordering system. Guests can simply scan the QR code at their table
+              to access the menu, place orders, and make payments seamlessly.
+              Enhance efficiency, reduce wait times, and empower guests with
+              greater control over their dining experience.
+            </p>
 
-<section class="bg-gray-50 dark:bg-white">
-	<div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
+            <ul
+              role="list"
+              class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"
+            >
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                >
+                  Transform the dining experience with seamless table-side
+                  ordering.</span
+                >
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                  >auto generated bill of one table(by qr order , captain
+                  app)</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <ul
+      role="list"
+      class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"
+    ></ul>
 
-		<div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
-			<div class="text-white sm:text-lg dark:text-white">
-				<h2 class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-[#FFB000]"><i class="ri-verified-badge-fill text-black m-2"></i> 1: Supply Chain of Food</h2>
-				<p class="mb-8 font-serif text-black lg:text-xl">Efficiently manage the supply chain of food items, from procurement to storage, ensuring freshness and quality. 
-					Track inventory levels, monitor supplier relationships, and optimize procurement processes to minimize costs 
-					while maximizing quality.</p>
+    <section class="bg-gray-50 dark:bg-white">
+      <div
+        class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6"
+      >
+        <div
+          class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16"
+          id="onlineintegration"
+        >
+          <div class="text-white sm:text-lg dark:text-[#FFB000]">
+            <h2
+              class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-[#FFB000]"
+            >
+              <i class="ri-verified-badge-fill text-black m-2"></i>3: Online
+              Integration
+            </h2>
+            <p class="mb-8 font-serif text-black lg:text-xl">
+              Integrate with popular online marketplaces such as Zomato and
+              Swiggy to expand your reach and attract more customers. Manage
+              online orders seamlessly within the same system, ensuring
+              consistency in service quality and order fulfilment.
+            </p>
 
-				<ul role="list" class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700">
-					<li class="flex space-x-3">
+            <ul
+              role="list"
+              class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"
+            >
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                >
+                  Expand your reach and attract more customers by integrating
+                  with popular online food delivery platforms.</span
+                >
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                >
+                  integration zometo,swiggy etc..</span
+                >
+              </li>
+            </ul>
+          </div>
+          <img
+            class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
+            src="https://img.freepik.com/free-vector/shopping-e-commerce-isometric-composition-with-conceptual-view-tablet-with-items_1284-30727.jpg?t=st=1711879531~exp=1711883131~hmac=ca72aa153adf5d5462b5d3d8a280dbb57b8f0de588abf7ad6e27431bb9538399&w=740"
+            alt="dashboard feature image"
+          />
+        </div>
 
-						<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-white" fill="currentColor"
-							viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd"
-								d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-								clip-rule="evenodd"></path>
-						</svg>
-						<span class="text-base font-medium leading-tight text-gray-900 dark:text-black">Categorization of food items (vegetables, fruits, spices, dairy products, etc.).</span>
-					</li>
-					<li class="flex space-x-3">
+        <div
+          class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16"
+          id="paymentdashboard"
+        >
+          <img
+            class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
+            src="https://img.freepik.com/premium-vector/accounting-abstract-concept-vector-illustration_107173-38282.jpg?w=996"
+            alt="feature image 2"
+          />
+          <div class="text-gray-500 sm:text-lg dark:text-gray-400">
+            <h2
+              class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-[#FFB000]"
+            >
+              <i class="ri-verified-badge-fill text-black m-2"></i> 4: Payment
+              Dashboard
+            </h2>
+            <p class="mb-8 font-serif text-black lg:text-xl">
+              Centralize payment processing with our intuitive payment
+              dashboard. Monitor transactions in real-time, track revenue
+              streams, and analyse payment trends effortlessly. Provide guests
+              with multiple payment options for enhanced convenience and
+              flexibility
+            </p>
 
-						<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-white" fill="currentColor"
-							viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd"
-								d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-								clip-rule="evenodd"></path>
-						</svg>
-						<span class="text-base font-medium leading-tight text-gray-900 dark:text-black"> Optimize food procurement and inventory management processes.</span>
-					</li>
-					
-				</ul>
-				
-			</div>
-			<img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" src="https://img.freepik.com/premium-vector/online-3d-printing-process-vector-isometric-illustration_103044-4315.jpg?w=1060" alt="dashboard feature image">
-</div>
+            <ul
+              role="list"
+              class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"
+            >
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                >
+                  Centralize payment processing and monitor transactions in
+                  real-time.</span
+                >
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                  >1: payment of the day,month,year</span
+                >
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                  >2: market place payment details</span
+                >
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                  >3: dine in payment details</span
+                >
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                  >4: take away payment details</span
+                >
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                  >5: cash and online mode filter</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <ul
+      role="list"
+      class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"
+    ></ul>
 
-			<div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
-				<img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" src="https://img.freepik.com/free-vector/characters-using-mobile-payment-system-with-scan-qr-code-online-shopping-concept_90220-479.jpg?w=1060&t=st=1711824566~exp=1711825166~hmac=4829c3f28ebf991a604c647410aa391ea46866ff22f3829a3e0c41a7425aef85" alt="feature image 2">
-				<div class="text-gray-500 sm:text-lg dark:text-gray-400">
-					<h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-[#FFB000]"><i class="ri-verified-badge-fill text-black m-2"></i> 2: Table Ordering using QR Code</h2>
-					<p class="mb-8 font-serif text-black lg:text-xl">Revolutionize the dining experience with our QR code-based table ordering system. Guests can simply scan the 
-						QR code at their table to access the menu, place orders, and make payments seamlessly. Enhance efficiency, 
-						reduce wait times, and empower guests with greater control over their dining experience.</p>
+    <section class="bg-gray-50 dark:bg-white">
+      <div
+        class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6"
+      >
+        <div
+          class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16"
+          id="billingsolutions"
+        >
+          <div class="text-white sm:text-lg dark:text-white">
+            <h2
+              class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-[#FFB000]"
+            >
+              <i class="ri-verified-badge-fill text-black m-2"></i> 5: Billing
+              Solutions
+            </h2>
+            <p class="mb-8 font-serif text-black lg:text-xl">
+              Simplify billing processes with our comprehensive billing
+              solutions. Generate accurate invoices, automate billing cycles,
+              and manage accounts receivable efficiently. Ensure transparency
+              and accuracy in financial transactions to foster trust and
+              satisfaction among guests.
+            </p>
 
-					<ul role="list" class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700">
-						<li class="flex space-x-3">
+            <ul
+              role="list"
+              class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"
+            >
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                >
+                  Simplify billing processes and ensure accuracy in financial
+                  transactions.</span
+                >
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                >
+                  auto generated bill of one table(by qr order , captain
+                  app)</span
+                >
+              </li>
+            </ul>
+          </div>
+          <img
+            class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
+            src="https://img.freepik.com/free-vector/paying-bills-concept-illustration_114360-19357.jpg?t=st=1711880803~exp=1711884403~hmac=7bedf629167f9a05060b4abc711e2691422affb5a38e27be05e0e3c26d270811&w=740"
+            alt="dashboard feature image"
+          />
+        </div>
 
-							<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-white" fill="currentColor"
-								viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd"
-									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-									clip-rule="evenodd"></path>
-							</svg>
-							<span class="text-base font-medium leading-tight text-gray-900 dark:text-black"> Transform the dining experience with seamless table-side ordering.</span>
-						</li>
-						<li class="flex space-x-3">
+        <div
+          class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16"
+          id="receptionistdashboard"
+        >
+          <img
+            class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
+            src="https://img.freepik.com/premium-vector/small-business-startup-concept-with-people_662093-179.jpg?w=740"
+            alt="feature image 2"
+          />
+          <div class="text-gray-500 sm:text-lg dark:text-gray-400">
+            <h2
+              class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-[#FFB000]"
+            >
+              <i class="ri-verified-badge-fill text-black m-2"></i> 6:
+              Receptionist Dashboard
+            </h2>
+            <p class="mb-8 font-serif text-black lg:text-xl">
+              Empower receptionists with a user-friendly dashboard to manage
+              guest bookings, inquiries, and requests seamlessly. Streamline
+              check-in/check-out processes, handle reservations efficiently, and
+              provide personalized assistance to enhance the overall guest
+              experience.
+            </p>
 
-							<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-white" fill="currentColor"
-								viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd"
-									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-									clip-rule="evenodd"></path>
-							</svg>
-							<span class="text-base font-medium leading-tight text-gray-900 dark:text-black">auto generated bill of one table(by qr order , captain 
-								app)</span>
-						</li>
-						
-					
-					</ul>
-					
-				</div>
-			</div>
-		</div>
-</section>
-<ul role="list" class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"></ul>
+            <ul
+              role="list"
+              class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"
+            >
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                >
+                  Simplify billing processes and ensure accuracy in financial
+                  transactions.
+                </span>
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                  >Handling table availability and bookings.
+                </span>
+              </li>
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                  >Responding to customer queries and requests.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <ul
+      role="list"
+      class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"
+    ></ul>
+    <section class="bg-gray-50 dark:bg-white">
+      <div
+        class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6"
+      >
+        <div
+          class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16"
+          id="staffmanagement"
+        >
+          <div class="text-white sm:text-lg dark:text-[#FFB000]">
+            <h2
+              class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-[#FFB000]"
+            >
+              <i class="ri-verified-badge-fill text-black m-2"></i>7: Staff
+              Management
+            </h2>
+            <p class="mb-8 font-serif text-black lg:text-xl">
+              Efficiently manage your workforce with our staff management
+              module. Streamline attendance tracking, automate scheduling, and
+              handle payroll processing with ease. Empower your staff with the
+              tools they need to deliver exceptional service while optimizing
+              operational efficiency.
+            </p>
 
-<section class="bg-gray-50 dark:bg-white">
-	<div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
+            <ul
+              role="list"
+              class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"
+            >
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                >
+                  Streamline workforce management with features for attendance
+                  tracking, scheduling, and payroll processing.</span
+                >
+              </li>
+            </ul>
+          </div>
+          <img
+            class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
+            src="https://img.freepik.com/free-vector/communication-flat-icon_1262-18771.jpg?t=st=1711881718~exp=1711885318~hmac=beeecfa1228be03af1852001262f6f602945ce1448da05aad3693d2fcaa28660&w=900"
+            alt="dashboard feature image"
+          />
+        </div>
 
-		<div class="items-center gap-8 lg:grid lg:grid-cols-2  xl:gap-16">
-			<div class="text-white sm:text-lg dark:text-[#FFB000]">
-				<h2 class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-[#FFB000]"><i class="ri-verified-badge-fill text-black m-2"></i>3: Online  Integration</h2>
-				<p class="mb-8 font-serif text-black lg:text-xl">Integrate with popular online marketplaces such as Zomato and Swiggy to expand your reach and attract more 
-					customers. Manage online orders seamlessly within the same system, ensuring consistency in service quality and 
-					order fulfilment.</p>
+        <div
+          class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16"
+          id="inventorymanagement"
+        >
+          <img
+            class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
+            src="https://img.freepik.com/free-vector/store-staff-check-number-products-that-must-be-delivered-customers-day_1150-51079.jpg?t=st=1711881861~exp=1711885461~hmac=c494877573ec28f3d92a74fcdfc698ae6952a580b42dc433d55e73afcd2d26bb&w=1060"
+            alt="feature image 2"
+          />
+          <div class="text-gray-500 sm:text-lg dark:text-gray-400">
+            <h2
+              class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-[#FFB000]"
+            >
+              <i class="ri-verified-badge-fill text-black m-2"></i> 8: Inventory
+              Management
+            </h2>
+            <p class="mb-8 font-serif text-black lg:text-xl">
+              Optimize inventory management with our advanced inventory tracking
+              system. Monitor stock levels in real-time, automate replenishment
+              processes, and minimize wastage to maximize profitability. Ensure
+              availability of essential supplies while minimizing excess
+              inventory holding costs.
+            </p>
 
-				<ul role="list" class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700">
-					<li class="flex space-x-3">
+            <ul
+              role="list"
+              class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"
+            >
+              <li class="flex space-x-3">
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span
+                  class="text-base font-medium leading-tight text-gray-900 dark:text-black"
+                >
+                  Optimize inventory tracking and minimize wastage to maximize
+                  profitability.</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-						<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black" fill="currentColor"
-							viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd"
-								d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-								clip-rule="evenodd"></path>
-						</svg>
-						<span class="text-base font-medium leading-tight text-gray-900 dark:text-black"> Expand your reach and attract more customers by integrating with popular 
-							online food delivery platforms.</span>
-					</li>
-					<li class="flex space-x-3">
+    <footer class="bg-white dark:bg-gray-800">
+      <div class="max-w-screen-xl p-4 py-6 mx-auto lg:py-16 md:p-8 lg:p-10">
+        <div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
+          <div>
+            <h3
+              class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
+            >
+              Company
+            </h3>
+            <ul class="text-gray-500 dark:text-gray-400">
+              <li class="mb-4">
+                <a href="#" class="hover:underline">About</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Careers</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Brand Center</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Blog</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3
+              class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
+            >
+              Help center
+            </h3>
+            <ul class="text-gray-500 dark:text-gray-400">
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Discord Server</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Twitter</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Facebook</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3
+              class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
+            >
+              Legal
+            </h3>
+            <ul class="text-gray-500 dark:text-gray-400">
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Privacy Policy</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Licensing</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Terms</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3
+              class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
+            >
+              Company
+            </h3>
+            <ul class="text-gray-500 dark:text-gray-400">
+              <li class="mb-4">
+                <a href="#" class="hover:underline">About</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Careers</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Brand Center</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Blog</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3
+              class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
+            >
+              Download
+            </h3>
+            <ul class="text-gray-500 dark:text-gray-400">
+              <li class="mb-4">
+                <a href="#" class="hover:underline">iOS</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Android</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Windows</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">MacOS</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr
+          class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
+        />
+        <div class="text-center">
+          <a
+            href="#"
+            class="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900 dark:text-white"
+          >
+            <img
+              src="https://demo.themesberg.com/landwind/images/logo.svg"
+              class="h-6 mr-3 sm:h-9"
+              alt="Landwind Logo"
+            />
+            Landwind
+          </a>
+          <span
+            class="block text-sm text-center text-gray-500 dark:text-gray-400"
+            >© 2021-2022 Landwind™. All Rights Reserved. Built with
+            <a
+              href="#"
+              target="_blank"
+              class="text-purple-600 hover:underline dark:text-purple-500"
+              >Flowbite</a
+            >
+            and
+            <a
+              href="#"
+              target="_blank"
+              class="text-purple-600 hover:underline dark:text-purple-500"
+              >Tailwind CSS</a
+            >.
+          </span>
+          <ul class="flex justify-center mt-5 space-x-5">
+            <li>
+              <a
+                href="#"
+                class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var dropdownMenu = document.querySelectorAll(".dropdown-menu");
 
-						<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black" fill="currentColor"
-							viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd"
-								d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-								clip-rule="evenodd"></path>
-						</svg>
-						<span class="text-base font-medium leading-tight text-gray-900 dark:text-black"> integration zometo,swiggy etc..</span>
-					</li>
-					
-				</ul>
-				
-			</div>
-			<img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" src="https://img.freepik.com/free-vector/shopping-e-commerce-isometric-composition-with-conceptual-view-tablet-with-items_1284-30727.jpg?t=st=1711879531~exp=1711883131~hmac=ca72aa153adf5d5462b5d3d8a280dbb57b8f0de588abf7ad6e27431bb9538399&w=740" alt="dashboard feature image">
-</div>
+        dropdownMenu.forEach(function (menu) {
+          menu.parentElement.addEventListener("mouseenter", function () {
+            menu.classList.remove("hidden");
+          });
 
-			<div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
-				<img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" src="https://img.freepik.com/premium-vector/accounting-abstract-concept-vector-illustration_107173-38282.jpg?w=996" alt="feature image 2">
-				<div class="text-gray-500 sm:text-lg dark:text-gray-400">
-					<h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-[#FFB000]"><i class="ri-verified-badge-fill text-black m-2"></i> 4: Payment Dashboard</h2>
-					<p class="mb-8 font-serif text-black lg:text-xl">Centralize payment processing with our intuitive payment dashboard. Monitor transactions in real-time, track 
-						revenue streams, and analyse payment trends effortlessly. Provide guests with multiple payment options for 
-						enhanced convenience and flexibility</p>
-
-					<ul role="list" class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700">
-						<li class="flex space-x-3">
-
-							<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black" fill="currentColor"
-								viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd"
-									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-									clip-rule="evenodd"></path>
-							</svg>
-							<span class="text-base font-medium leading-tight text-gray-900 dark:text-black">  Centralize payment processing and monitor transactions in real-time.</span>
-						</li>
-						<li class="flex space-x-3">
-
-							<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black" fill="currentColor"
-								viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd"
-									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-									clip-rule="evenodd"></path>
-							</svg>
-							<span class="text-base font-medium leading-tight text-gray-900 dark:text-black">1: payment of the day,month,year</span>
-						</li>
-						<li class="flex space-x-3">
-
-							<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black" fill="currentColor"
-								viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd"
-									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-									clip-rule="evenodd"></path>
-							</svg>
-							<span class="text-base font-medium leading-tight text-gray-900 dark:text-black">2: market place payment details</span>
-						</li>
-						<li class="flex space-x-3">
-
-							<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black" fill="currentColor"
-								viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd"
-									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-									clip-rule="evenodd"></path>
-							</svg>
-							<span class="text-base font-medium leading-tight text-gray-900 dark:text-black">3: dine in payment details</span>
-						</li>
-						<li class="flex space-x-3">
-
-							<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black" fill="currentColor"
-								viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd"
-									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-									clip-rule="evenodd"></path>
-							</svg>
-							<span class="text-base font-medium leading-tight text-gray-900 dark:text-black">4: take away payment details</span>
-						</li><li class="flex space-x-3">
-
-							<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black" fill="currentColor"
-								viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd"
-									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-									clip-rule="evenodd"></path>
-							</svg>
-							<span class="text-base font-medium leading-tight text-gray-900 dark:text-black">5: cash and online mode filter</span>
-						</li>
-						
-						
-					
-					</ul>
-					
-				</div>
-			</div>
-		</div>
-</section>
-<ul role="list" class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"></ul>
-
-<section class="bg-gray-50 dark:bg-white">
-	<div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
-
-		<div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
-			<div class="text-white sm:text-lg dark:text-white">
-				<h2 class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-[#FFB000]"><i class="ri-verified-badge-fill text-black m-2"></i>  5: Billing Solutions</h2>
-				<p class="mb-8 font-serif text-black lg:text-xl">Simplify billing processes with our comprehensive billing solutions. Generate accurate invoices, automate billing 
-					cycles, and manage accounts receivable efficiently. Ensure transparency and accuracy in financial transactions to 
-					foster trust and satisfaction among guests.
-					</p>
-
-				<ul role="list" class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700">
-					<li class="flex space-x-3">
-
-						<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black" fill="currentColor"
-							viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd"
-								d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-								clip-rule="evenodd"></path>
-						</svg>
-						<span class="text-base font-medium leading-tight text-gray-900 dark:text-black"> Simplify billing processes and ensure accuracy in financial transactions.</span>
-					</li>
-					<li class="flex space-x-3">
-
-						<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black" fill="currentColor"
-							viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd"
-								d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-								clip-rule="evenodd"></path>
-						</svg>
-						<span class="text-base font-medium leading-tight text-gray-900 dark:text-black"> auto generated bill of one table(by qr order , captain 
-							app)</span>
-					</li>
-					
-				</ul>
-				
-			</div>
-			<img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" src="https://img.freepik.com/free-vector/paying-bills-concept-illustration_114360-19357.jpg?t=st=1711880803~exp=1711884403~hmac=7bedf629167f9a05060b4abc711e2691422affb5a38e27be05e0e3c26d270811&w=740" alt="dashboard feature image">
-</div>
-
-			<div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
-				<img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" src="https://img.freepik.com/premium-vector/small-business-startup-concept-with-people_662093-179.jpg?w=740" alt="feature image 2">
-				<div class="text-gray-500 sm:text-lg dark:text-gray-400">
-					<h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-[#FFB000]"><i class="ri-verified-badge-fill text-black m-2"></i>   6: Receptionist Dashboard
-					</h2>
-					<p class="mb-8 font-serif text-black lg:text-xl">Empower receptionists with a user-friendly dashboard to manage guest bookings, inquiries, and requests 
-						seamlessly. Streamline check-in/check-out processes, handle reservations efficiently, and provide personalized 
-						assistance to enhance the overall guest experience.</p>
-
-					<ul role="list" class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700">
-						<li class="flex space-x-3">
-
-							<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black" fill="currentColor"
-								viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd"
-									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-									clip-rule="evenodd"></path>
-							</svg>
-							<span class="text-base font-medium leading-tight text-gray-900 dark:text-black">  Simplify billing processes and ensure accuracy in financial transactions.
-								</span>
-						</li>
-						<li class="flex space-x-3">
-
-							<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black" fill="currentColor"
-								viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd"
-									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-									clip-rule="evenodd"></path>
-							</svg>
-							<span class="text-base font-medium leading-tight text-gray-900 dark:text-black">Handling table availability and bookings.
-								</span>
-						</li>
-						<li class="flex space-x-3">
-
-							<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black" fill="currentColor"
-								viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd"
-									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-									clip-rule="evenodd"></path>
-							</svg>
-							<span class="text-base font-medium leading-tight text-gray-900 dark:text-black">Responding to customer queries and requests.
-								</span>
-						</li>
-						
-					
-					</ul>
-					
-				</div>
-			</div>
-		</div>
-</section>
-<ul role="list" class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"></ul>
-<section class="bg-gray-50 dark:bg-white">
-	<div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
-
-		<div class="items-center gap-8 lg:grid lg:grid-cols-2  xl:gap-16">
-			<div class="text-white sm:text-lg dark:text-[#FFB000]">
-				<h2 class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-[#FFB000]"><i class="ri-verified-badge-fill text-black m-2"></i>7: Staff Management</h2>
-				<p class="mb-8 font-serif text-black lg:text-xl">Efficiently manage your workforce with our staff management module. Streamline attendance tracking, 
-					automate scheduling, and handle payroll processing with ease. Empower your staff with the tools they need to 
-					deliver exceptional service while optimizing operational efficiency.</p>
-
-				<ul role="list" class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700">
-					<li class="flex space-x-3">
-
-						<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black" fill="currentColor"
-							viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd"
-								d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-								clip-rule="evenodd"></path>
-						</svg>
-						<span class="text-base font-medium leading-tight text-gray-900 dark:text-black"> Streamline workforce management with features for attendance tracking, scheduling, and 
-							payroll processing.</span>
-					</li>
-					
-					
-				</ul>
-				
-			</div>
-			<img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" src="https://img.freepik.com/free-vector/communication-flat-icon_1262-18771.jpg?t=st=1711881718~exp=1711885318~hmac=beeecfa1228be03af1852001262f6f602945ce1448da05aad3693d2fcaa28660&w=900" alt="dashboard feature image">
-</div>
-
-			<div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
-				<img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" src="https://img.freepik.com/free-vector/store-staff-check-number-products-that-must-be-delivered-customers-day_1150-51079.jpg?t=st=1711881861~exp=1711885461~hmac=c494877573ec28f3d92a74fcdfc698ae6952a580b42dc433d55e73afcd2d26bb&w=1060" alt="feature image 2">
-				<div class="text-gray-500 sm:text-lg dark:text-gray-400">
-					<h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-[#FFB000]"><i class="ri-verified-badge-fill text-black m-2"></i>  8: Inventory Management</h2>
-					<p class="mb-8 font-serif text-black lg:text-xl">Optimize inventory management with our advanced inventory tracking system. Monitor stock levels in real-time, 
-						automate replenishment processes, and minimize wastage to maximize profitability. Ensure availability of 
-						essential supplies while minimizing excess inventory holding costs.</p>
-
-					<ul role="list" class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700">
-						<li class="flex space-x-3">
-
-							<svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-black" fill="currentColor"
-								viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd"
-									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-									clip-rule="evenodd"></path>
-							</svg>
-							<span class="text-base font-medium leading-tight text-gray-900 dark:text-black">  Optimize inventory tracking and minimize wastage to maximize profitability.</span>
-						</li>
-					
-						
-						
-					
-					</ul>
-					
-				</div>
-			</div>
-		</div>
-</section>
-
-
-
-
-
-
-
-
-
-
-<footer class="bg-white dark:bg-gray-800">
-	<div class="max-w-screen-xl p-4 py-6 mx-auto lg:py-16 md:p-8 lg:p-10">
-		<div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
-			<div>
-				<h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h3>
-				<ul class="text-gray-500 dark:text-gray-400">
-					<li class="mb-4">
-						<a href="#" class=" hover:underline">About</a>
-					</li>
-					<li class="mb-4">
-						<a href="#" class="hover:underline">Careers</a>
-					</li>
-					<li class="mb-4">
-						<a href="#" class="hover:underline">Brand Center</a>
-					</li>
-					<li class="mb-4">
-						<a href="#" class="hover:underline">Blog</a>
-					</li>
-				</ul>
-			</div>
-			<div>
-				<h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Help center</h3>
-				<ul class="text-gray-500 dark:text-gray-400">
-					<li class="mb-4">
-						<a href="#" class="hover:underline">Discord Server</a>
-					</li>
-					<li class="mb-4">
-						<a href="#" class="hover:underline">Twitter</a>
-					</li>
-					<li class="mb-4">
-						<a href="#" class="hover:underline">Facebook
-					</li>
-					<li class="mb-4">
-						<a href="#" class="hover:underline">Contact Us</a>
-					</li>
-				</ul>
-			</div>
-			<div>
-				<h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h3>
-				<ul class="text-gray-500 dark:text-gray-400">
-					<li class="mb-4">
-						<a href="#" class="hover:underline">Privacy Policy</a>
-					</li>
-					<li class="mb-4">
-						<a href="#" class="hover:underline">Licensing</a>
-					</li>
-					<li class="mb-4">
-						<a href="#" class="hover:underline">Terms</a>
-					</li>
-				</ul>
-			</div>
-			<div>
-				<h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h3>
-				<ul class="text-gray-500 dark:text-gray-400">
-					<li class="mb-4">
-						<a href="#" class=" hover:underline">About</a>
-					</li>
-					<li class="mb-4">
-						<a href="#" class="hover:underline">Careers</a>
-					</li>
-					<li class="mb-4">
-						<a href="#" class="hover:underline">Brand Center</a>
-					</li>
-					<li class="mb-4">
-						<a href="#" class="hover:underline">Blog</a>
-					</li>
-				</ul>
-			</div>
-			<div>
-				<h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Download</h3>
-				<ul class="text-gray-500 dark:text-gray-400">
-					<li class="mb-4">
-						<a href="#" class="hover:underline">iOS</a>
-					</li>
-					<li class="mb-4">
-						<a href="#" class="hover:underline">Android</a>
-					</li>
-					<li class="mb-4">
-						<a href="#" class="hover:underline">Windows</a>
-					</li>
-					<li class="mb-4">
-						<a href="#" class="hover:underline">MacOS</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
-		<div class="text-center">
-			<a href="#"
-				class="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900 dark:text-white">
-				<img src="https://demo.themesberg.com/landwind/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Landwind Logo" />
-Landwind
-</a>
-				<span class="block text-sm text-center text-gray-500 dark:text-gray-400">© 2021-2022 Landwind™. All Rights Reserved. Built with <a href="#" target="_blank" class="text-purple-600 hover:underline dark:text-purple-500">Flowbite</a> and <a href="#" target="_blank" class="text-purple-600 hover:underline dark:text-purple-500">Tailwind CSS</a>.
-</span>
-				<ul class="flex justify-center mt-5 space-x-5">
-					<li>
-						<a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400">
-							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-								<path fill-rule="evenodd"
-									d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-									clip-rule="evenodd" /></svg>
-						</a>
-					</li>
-					<li>
-						<a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400">
-							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-								<path fill-rule="evenodd"
-									d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-									clip-rule="evenodd" /></svg>
-						</a>
-					</li>
-					<li>
-						<a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400">
-							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-								<path
-									d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-								</svg>
-						</a>
-					</li>
-					<li>
-						<a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400">
-							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-								<path fill-rule="evenodd"
-									d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-									clip-rule="evenodd" /></svg>
-						</a>
-					</li>
-					<li>
-						<a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400">
-							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-								<path fill-rule="evenodd"
-									d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
-									clip-rule="evenodd" /></svg>
-						</a>
-					</li>
-				</ul>
-		</div>
-	</div>
-</footer>
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
-</body>
+          menu.parentElement.addEventListener("mouseleave", function () {
+            menu.classList.add("hidden");
+          });
+        });
+      });
+    </script>
+  </body>
 </html>

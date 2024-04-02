@@ -19,10 +19,15 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path,include
 
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
-    path("",include('hotel.urls'))
+    path("hotel/",include('hotel.urls')),
+    path("",include("landing.urls")),
+    path("account/",include("account.urls")),
+   
+
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'tailwind',
     'theme',
-    'django_browser_reload','hotel','supply_chain','delivery_partner','account','api',
+    'django_browser_reload','hotel','supply_chain','delivery_partner','account','api','landing',
 ]
 
 MIDDLEWARE = [
