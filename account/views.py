@@ -21,7 +21,7 @@ def delivery_partner(request):
     return render(request,"delivery_pages/delivery_partner.html")
 
 
-def delivery_partner(request):
+def supplier(request):
     return render(request,"supplier_pages/supplier.html")
 
 
