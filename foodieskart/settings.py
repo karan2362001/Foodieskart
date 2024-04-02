@@ -141,3 +141,6 @@ INTERNAL_IPS = [
 TAILWIND_APP_NAME = 'theme'
 
 NPM_BIN_PATH = 'npm.cmd'
+
+# settings.py
+AUTH_USER_MODEL = 'account.CustomUser'

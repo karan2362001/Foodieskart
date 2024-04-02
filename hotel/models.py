@@ -1,19 +1,20 @@
 from django.db import models
-'''
+
 from account.models import CustomUser
 
+
 # Create your models here.
-class Hotel(models.Model):
-    name = models.CharField(max_length=100)
+class hotel(models.Model):
     owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    address = models.TextField()
-
-
-
-class Supplier(models.Model):
     name = models.CharField(max_length=100)
-    contact_info = models.CharField(max_length=100)
+    mobile_no=models.BigIntegerField(null=True)
+    address = models.TextField()
+    logo = models.ImageField(upload_to='logos/', blank=True, null=True)
+    
+    def __str__(self):
+        return self.name
 
+    '''
 class Staff(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
